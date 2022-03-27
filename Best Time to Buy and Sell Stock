@@ -1,0 +1,38 @@
+
+let price=[7,6,4,3,1];
+//cada valor del array price representa el precio 
+//la accion en un dia 
+let ini=price[0]
+
+
+//necesitamos crear un programa que escoja el dia mas barato y venda en el dia mas caro 
+//si no es posible retornar 0 
+
+for(i=0;i<price.length;i++){
+    if(price[i]<ini){
+        ini=price[i]
+    }   
+}
+//definimos el inicio y el final de nuevo subarray que creamos 
+var inicio=price.indexOf(ini)
+var final =price.length
+//con este ciclo for se obtiene el menor valor del array price y se almacena en la variable ini
+var subarray =price.slice(inicio,final)
+let fin=subarray[0]
+
+//con este for encontramos el mayor valor el en subarray creado y creamos una variable x para determinar si se puede generar ganancia o no en el proceso 
+for (let j=0;j<subarray.length;j++){
+    if (fin<subarray[j]){
+        fin=subarray[j]
+        let x=true
+    }
+    else{x=false}
+}
+final =price.indexOf(fin)
+
+if(x=true){console.log("el dia en el que se tiene que comprar es "," ",inicio+1, "y el dia en que se tiene que vender es "," ",final+1)
+
+}
+else{
+    console.log("no se puede generar ganancia")
+}
